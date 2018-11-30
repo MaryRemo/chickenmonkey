@@ -7,18 +7,15 @@
 
 for (let currentNumber = 1; currentNumber <= 100; currentNumber++) {
 
-    if (currentNumber % 5 === 0) { 
+    if (currentNumber % 5 ===0 && currentNumber % 7 === 0) {
+    console.log("ChickenMonkey");
+  }
+    else if (currentNumber % 5 === 0) { 
     console.log("Chicken");
     }
-
     else if (currentNumber % 7 === 0) {
       console.log("Monkey");
     }
-
-    if (currentNumber % 5 ===0 && currentNumber % 7 === 0) {
-      console.log("ChickenMonkey");
-    }
-    
     else {
       console.log(currentNumber);
     }
@@ -35,15 +32,19 @@ for (let currentNumber = 1; currentNumber <= 100; currentNumber++) {
 // The function will increment a global variable by one each time it is invoked, 
 // and return that number, and the band name concatenated together.
 
-let bandNumber = 0
+let bandNumber = 0;
 
 const takeNumber = function (bandName) {
    bandNumber = bandNumber + 1;
-   console.log(bandNumber + ". " + bandName)
+   return `${bandNumber}. ${bandName}`;
 }
 
-takeNumber("Galactic Scum")
-takeNumber("Underdogs")
+const scum = takeNumber("Galactic Scum")
+console.log(scum)  // This should print "1. Galactic Scum" in the console
+
+const under = takeNumber("Underdogs")
+console.log(under)  // This should print "2. Underdogs" in the console
+
 
 // Your task is to iterate over the array of uncookedFood and invoke the function for each 
 // item so that the cookedFood array contains all of the items after they are cooked.
@@ -82,13 +83,13 @@ const uncookedFood = [hamburger, zucchini, chickenBreast, corn, steak];
 const cookedFood = [];
 
 
+const grill =(uncookedFoodArray) => {
 for (i = 0; i < uncookedFood.length; i++) {
-  function grill (currentObject) {
-  currentObject.cooked = true;
-  cookedFood.push(currentObject);
+  let currentItem = uncookedFood[i];
+  currentItem.cooked = true;
+  cookedFood.push(currentItem);
 }
 }
-
 grill(uncookedFood);
 console.log(cookedFood);
 
